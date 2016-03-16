@@ -1,5 +1,7 @@
 ## thanos
 
+**If you are reading this. This refers to the older intial design of the tool, left for reference**
+
 Yeah, so we are making a password checking tool which will tell you
 everything(well almost everything!) about your password.
 
