@@ -1,4 +1,8 @@
 *.py[cod]
+test.py
+garbage/
+*.zip
+test_dict.txt
 
 # C extensions
 *.so

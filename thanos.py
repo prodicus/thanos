@@ -1,29 +1,34 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-'''thanos
+
+r'''thanos
 
 Usage:
-  thanos ship new <name>...
-  thanos ship <name> move <x> <y> [--speed=<kn>]
-  thanos ship shoot <x> <y>
-  thanos mine (set|remove) <x> <y> [--moored|--drifting]
-  thanos -h | --help
+  thanos crack (filename)
+  thanos feeling-lucky
   thanos --version
 
 Options:
   -h --help     Show this screen.
   --version     Show version.
-  --speed=<kn>  Speed in knots [default: 10].
-  --moored      Moored (anchored) mine.
-  --drifting    Drifting mine.
+  -a --all      Show all information.
 '''
 
 from __future__ import unicode_literals, print_function
-from docopt import docopt
 
+from docopt import docopt
+from termcolor import colored
+
+
+__name__ = "thanos"
 __version__ = "0.0.1"
+__email__ = "prodicus@outlook.com"
 __author__ = "Tasdik Rahman"
 __license__ = "MIT"
+
+
+PARENT_DIR = os.path.abspath('.')
+DATA_DIR = os.path.join(PARENT_DIR, 'data')
 
 
 def main():

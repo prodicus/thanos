@@ -93,8 +93,7 @@ Authors
 
 Built with ♥ and after a lot of mountain-dews by
 
--  `Tasdik Rahman <http://tasdikrahman.me>`__
-   [(@tasdikrahman)](https://twitter.com/tasdikrahman)
+-  `Tasdik Rahman <http://tasdikrahman.me>`__ `(@tasdikrahman) <https://twitter.com/tasdikrahman>`__
 -  `Nitesh Sharma <https://github/com/sinscary>`__
 -  `Gaurab Chakraborty <https://github.com/GaurabChakraborty>`__
 -  `Keerthika Shekhar <https://github.com/kirthishekhar95>`__
