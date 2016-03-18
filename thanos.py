@@ -1,23 +1,8 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-r'''thanos
-
-Usage:
-  thanos crack (filename)
-  thanos feeling-lucky
-  thanos --version
-
-Options:
-  -h --help     Show this screen.
-  --version     Show version.
-  -a --all      Show all information.
-'''
-
-from __future__ import unicode_literals, print_function
-
-from docopt import docopt
-from termcolor import colored
+# @Author: Tasdik Rahman
+# @Date:   2016-03-18 18:59:22
+# @Last Modified by:   Tasdik Rahman
+# @Last Modified time: 2016-03-18 18:59:29
 
 
 __name__ = "thanos"
@@ -33,8 +18,6 @@ DATA_DIR = os.path.join(PARENT_DIR, 'data')
 
 def main():
     '''Main entry point for the thanos CLI.'''
-    args = docopt(__doc__, version=__version__)
-    print(args)
 
 if __name__ == '__main__':
     main()
