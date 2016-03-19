@@ -1,47 +1,60 @@
+#####=== Python ===#####
+
+# project related files
+*.db
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
 *.py[cod]
-test.py
-garbage/
-*.zip
-test_dict.txt
 
 # C extensions
 *.so
 
-# Packages
-*.egg
-*.egg-info
-dist
-build
-eggs
-parts
-bin
-var
-sdist
-develop-eggs
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
 .installed.cfg
-lib
-lib64
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
 
 # Installer logs
 pip-log.txt
+pip-delete-this-directory.txt
 
 # Unit test / coverage reports
+htmlcov/
+.tox/
 .coverage
-.tox
+.cache
 nosetests.xml
+coverage.xml
 
 # Translations
 *.mo
+*.pot
 
-# Mr Developer
-.mr.developer.cfg
-.project
-.pydevproject
+# Django stuff:
+*.log
 
-# Complexity
-output/*.html
-output/*/index.html
+# Sphinx documentation
+docs/_build/
 
-# Sphinx
-docs/_build
-README.html
+# PyBuilder
+target/
+

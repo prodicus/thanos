@@ -1,99 +1,189 @@
 thanos
 ======
 
-Index
-=====
+:Author: Tasdik Rahman
 
--  `About <https://github.com/prodicus/thanos#about>`__
+.. contents::
+    :backlinks: none
 
-   -  `Plan of action <https://github.com/prodicus/thanos#plan-of-action>`__
-
--  `FAQ <https://github.com/prodicus/thanos#faq>`__
--  `To the contributers <https://github.com/prodicus/thanos#to-the-contruibuters>`__
-
-   -  `Issues <https://github.com/prodicus/thanos#issues>`__
-
--  `Authors <https://github.com/prodicus/thanos#authors>`__
--  `Legal Stuff <https://github.com/prodicus/thanos#legal-stuff>`__
-
---------------
+.. sectnum::
 
 About
 =====
 
 `[Back to top] <https://github.com/prodicus/thanos#thanos>`__
 
-
 A little taste of what can happen when you pass parameterized
 arguments in your query strings.
 
+Will be using a GUI as an interface between the user and the database and try out
+different vulnerable strings and see if we can acess the database
+
 Plan of action
---------------
+~~~~~~~~~~~~~~
 
 - [✓] Test for ``SQL Injection`` vulnerabilities
+- [ ] Test for ``Input validation`` techniques using `WTForms <http://wtforms.readthedocs.org/en/latest/index.html>`__
 - [✓] Suggest fixes to the vulnerabilities found(if any)
-- [✓] making the GUI using tkinter ~~/wxPython/PyQt~~
+- [✓] making the GUI using tkinter
+- [ ] **Writing testcases**
 
---------------
+Mitigation techniques
+~~~~~~~~~~~~~~~~~~~~~
+
+- [ ] Will be using `WTF Forms <http://wtforms.readthedocs.org/en/latest/crash_course.html>`__ for input validation
+- [ ] Replacing the parameterized ``SQL constructs`` in the code and replace it with pythonic API
+
+Show me what have you did so far
+================================
+
+The database has the following user credentials in it
+
+.. code:: bash
+
+    tasdik at Acer in ~/Dropbox/projects/thanos on develop
+    $ sqlite3 sare_log.db 
+    -- Loading resources from /home/tasdik/.sqliterc
+
+    SQLite version 3.8.6 2014-08-15 11:46:33
+    Enter ".help" for usage hints.
+    sqlite> SELECT * FROM users;
+    username    name        serial_no   password  
+    ----------  ----------  ----------  ----------
+    admin       Admin       1           admin123  
+    foo         bar         2           foo123    
+    john        doe         3           john123
+    sqlite>
+
+**When you enter user credentials which are there in the database**
+
+.. image:: http://i.imgur.com/dH5BBjz.jpg 
+   :alt:
+
+
+**If a wrong user details are entered**
+
+
+.. image:: http://i.imgur.com/4It8Yha.jpg
+
+
+**SQL injection anybody?**
+
+
+.. image:: http://i.imgur.com/e5BmrX9.jpg
+
+Running it
+==========
+`[Back to top] <https://github.com/prodicus/thanos#thanos>`__
+
+*Urm. So how do I run it?*
+
+Installing the dependencies
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+I prefer to use `virtual environments <http://docs.python-guide.org/en/latest/dev/virtualenvs/>`__ for keeping the global ``python`` interpreter clutter free. But you are free to do a system wide install for the dependencies.
+
+**You should have `make` installed on your system.**
+
+.. code:: bash
+
+    $ git clone https://github.com/prodicus/thanos && cd thanos
+    $ make install
+
+If ``make install`` gives you an error. Try this
+
+.. code:: bash
+
+    $ pip install -r requirements.txt
+
+
+Running it!
+~~~~~~~~~~~
+
+.. code:: bash
+
+    $ make run
+
+Cleaning it up
+
+.. code:: bash
+
+    $ make clean
+
+When in doubt
+~~~~~~~~~~~~~
+
+.. code:: bash
+
+    $ make help
 
 FAQ
 ===
-
 `[Back to top] <https://github.com/prodicus/thanos#thanos>`__
 
 Okay, But what does it do?
---------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- So there's this database called ``sare_log.db``, (which translates to ``all_people.db`` in english). We have some users details stored inside this database.
+- So there's this database called ``sare_log.db``, (which translates to ``all_people`` in english). We have some users details stored inside this database.
 
-- We demonstrate how unparameterized SQL queries can be a source of havoc for databases.
+- We try to exploit the database testing for some common vulnerabilities like
+  - SQL injection
+  - input validation
 
 - **More to come**
 
 Will I be able to run it on my PC?
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 I have tested this on MAC and Linux based systems currently
 
 What's with the name?
----------------------
+~~~~~~~~~~~~~~~~~~~~~
 
 Nothing! It's just that I read a lot of Marvel comics.
 
 The code looks messy!
----------------------
+~~~~~~~~~~~~~~~~~~~~~
 
-Well, so does your mom!
+*Well, so does your mom!*
 
 Jokes apart. As I said, this is still a  work in progress.
 
---------------
-
 To the contruibuters
 ====================
-
 `[Back to top] <https://github.com/prodicus/thanos#thanos>`__
 
 -  Conform to `PEP0008 <http://pep8.org>`__
--  Make sure your code passes **flake8**
+-  Make sure your code passes **flake8** and **pep257**
+
+.. code:: bash
+
+    $ make flake8
+
+For ``pep257``
+
+.. code:: bash
+
+    $ make pep257
+
+
+
 -  Write meaningful commit messages
+-  Rebase your commits to one commit when making a PR
 
 Issues
-------
+~~~~~~
 
 `[Back to top] <https://github.com/prodicus/thanos#thanos>`__
 
 This project is still work in progress so feel free to make PR or give
 suggestions by `creating an issue <https://github.com/prodicus/thanos/issues>`__
 
---------------
-
-Authors
-=======
-
+Contributers
+============
 `[Back to top] <https://github.com/prodicus/thanos#thanos>`__
 
-Built with ♥ and after a lot of mountain-dews by
+Built with ♥ and after a lot of marshmellows by
 
 -  `Tasdik Rahman <http://tasdikrahman.me>`__ `(@tasdikrahman) <https://twitter.com/tasdikrahman>`__
 -  `Nitesh Sharma <https://github/com/sinscary>`__
@@ -102,7 +192,6 @@ Built with ♥ and after a lot of mountain-dews by
 
 Legal Stuff
 ===========
-
 `[Back to top] <https://github.com/prodicus/thanos#thanos>`__
 
-`MIT Licensed <http://prodicus.mit-license.com>`__. See the bundled `LICENSE <https://github.com/prodicus/thanos/blob/master/LICENSE>`_ file for more details.
+Built and maintained by `Tasdik Rahman <http://tasdikrahman.me>`__ released under the `MIT License <http://prodicus.mit-license.com>`__. See the bundled `LICENSE <https://github.com/prodicus/thanos/blob/master/LICENSE>`_ file for more details.

