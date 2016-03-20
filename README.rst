@@ -65,20 +65,22 @@ The database has the following user credentials in it
 
 **When you enter user credentials which are there in the database**
 
-.. image:: http://i.imgur.com/dH5BBjz.jpg 
+.. image:: http://i.imgur.com/44DSFUM.jpg 
    :alt:
 
 
-**If a wrong user details are entered**
+**If wrong user details are entered** 
+
+*Notice that, the SQL command is still getting executed by the script*. 
 
 
-.. image:: http://i.imgur.com/4It8Yha.jpg
+.. image:: http://i.imgur.com/XrZRRT3.jpg
 
 
 **SQL injection anybody?**
 
 
-.. image:: http://i.imgur.com/e5BmrX9.jpg
+.. image:: http://i.imgur.com/qlzSCuP.jpg
 
 Running it
 ==========
