@@ -2,7 +2,7 @@
 # @Author: Tasdik Rahman
 # @Date:   2016-03-19 00:10:33
 # @Last Modified by:   Tasdik Rahman
-# @Last Modified time: 2016-03-19 21:21:56
+# @Last Modified time: 2016-03-20 12:18:24
 
 """
 Contains the class 'GuiLogin()' which will be imported by 'main.py' to be run
@@ -15,11 +15,11 @@ References:
 
 from tkinter import *
 import sqlite3
-import logging
 
 from termcolor import colored
 
 from constants import DB_NAME
+from utils import email_validator, password_validator
 
 
 class GuiLogin(Frame):
@@ -32,35 +32,38 @@ class GuiLogin(Frame):
         """
         Initializes the tkinter object and aggregates the data to be displayed
         """
-         # Create and add GUI components to the screen
+        # Create and add GUI components to the screen
         Frame.__init__(self)
         self.master.title("Login Screen")
 
         self.master.minsize(300, 200)
         self.pack()
 
-        self._usernameLabel = Label(self, text="Enter username")
+        self._usernameLabel = Label(self, text="Enter email")
         self._usernameLabel.pack()
 
         """StringVar() makes self._usernameVar store "" by default
         Ref: [1]
         """
         self._usernameVar = StringVar()
-        self._usernameEntry = Entry(self, textvariable=self._usernameVar, width=30)
+        self._usernameEntry = Entry(
+            self, textvariable=self._usernameVar, width=30)
         self._usernameEntry.pack()
 
         self._passwordLabel = Label(self, text="Enter password")
         self._passwordLabel.pack()
 
         self._passwordVar = StringVar()
-        self._passwordEntry = Entry(self, textvariable=self._passwordVar, width=30)
+        self._passwordEntry = Entry(
+            self, textvariable=self._passwordVar, width=30)
         self._passwordEntry.pack()
 
         self._loginButton = Button(self, text="Login", command=self._login)
         self._loginButton.pack()
 
         self._resultVar = StringVar()
-        self._resultLabel = Label(self, text=" \n ", textvariable=self._resultVar)
+        self._resultLabel = Label(
+            self, text=" \n ", textvariable=self._resultVar)
         self._resultLabel.pack()
 
         self._quitButton = Button(self, text="Quit", command=self._quit)
@@ -88,74 +91,84 @@ class GuiLogin(Frame):
         row_factory will allow us to refer to the columns by their names
         instead of their index numbers
         """
-        return (connection ,connection.cursor())
+        return (connection, connection.cursor())
 
     # more on private and protected classes
     # ref: [3]
-    def _authenticate(self, username, password):
+    def _authenticate(self, email, password):
         """
         Called by the method '_login()'
 
-        Unpacks the **kwargs key pair value to get username and password
+        Unpacks the **kwargs key pair value to get email and password
         and query it to the database in an unsecure way to demonstrate SQL
         injection
 
-        :param username: Username entered by the user
+        :param email: email entered by the user
         :param password: Password entered by the user
         :returns: None or a result from the database based on the success of
                   the user query
         """
         print(
-            colored("Attempting to login with username:'{0}' "
-                    "password:'{1}'".format(username, password),
+            colored("Attempting to login with email:'{0}' "
+                    "password:'{1}'".format(email, password),
                     "yellow"
                     )
         )
 
         connection, cursor = self._db_connect()
 
-        # Defining the vulnerable SQL query which will be used to exploit the database
-        # usign SQL injection
-        sqlInjection_vuln_query = '''SELECT name FROM users WHERE username = '%s' and password = '%s' ''' % (username, password)
+        # validating username and password entered by the user
+        if not email_validator(email) and password_validator(password):
+            self._resultVar.set("Gotcha you invalid Input!")
 
-        # --- Secure method ---
-        # sqlInjection_vuln_query = "SELECT name FROM users WHERE username={0} and password={1}".format(
-        #                               username,
-        #                               password
-        #                           )
+        else:
+            # Defining the vulnerable SQL query which will be used to exploit the database
+            # usign SQL injection
+            # sqlInjection_vuln_query = '''SELECT name FROM users WHERE email = '%s' and password = '%s' ''' % (email, password)
 
-        print("Executing the SQL query")
-        print(colored(sqlInjection_vuln_query, "yellow"))
+            # --- Secure method ---
+            sqlInjection_vuln_query = "SELECT name FROM users WHERE email='{0}' and password='{1}'".format(
+                email,
+                password
+            )
 
-        cursor.execute(sqlInjection_vuln_query)
+            print("Executing the SQL query")
+            print(colored(sqlInjection_vuln_query, "yellow"))
 
-        # Will assume here that the login failed, if no rows are returned back
-        # by the database
-        response = None
-        # This loop won't run if no results are returned.
-        for row in cursor:
-            response = row['name']  # Extract name from first row
-            break
+            cursor.execute(sqlInjection_vuln_query)
 
-        connection.close()
-        return response
+            # Will assume here that the login failed, if no rows are returned back
+            # by the database
+            response = None
+            # This loop won't run if no results are returned.
+            for row in cursor:
+                response = row['name']  # Extract name from first row
+                break
+
+            connection.close()
+            return response
 
     def _login(self):
         """
-        parses the user input for username and password and calls the
+        Calls the 
+
+        parses the user input for email and password and calls the
         '_authenticate()' 
+
+
 
         TO-DO: To add input validation using WTForms, which will address the
                issue(I guess!)
         """
         kwargs = {
-            "username": self._usernameVar.get(),
+            "email": self._usernameVar.get(),
             "password": self._passwordVar.get()
         }
+
         response = self._authenticate(**kwargs)
 
         if response is None:    # 'is' checks for object similarity.
-            result_of_query = "Username or password was incorrect"
+            result_of_query = "email or password was incorrect"
         else:
             result_of_query = "Logged in! :)"
 

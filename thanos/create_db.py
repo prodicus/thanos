@@ -2,11 +2,9 @@
 # @Author: Tasdik Rahman
 # @Date:   2016-03-18 20:21:56
 # @Last Modified by:   Tasdik Rahman
-# @Last Modified time: 2016-03-19 16:26:27
+# @Last Modified time: 2016-03-20 10:35:33
 
-from __future__ import print_function, unicode_literals
 import sqlite3
-import os
 
 from constants import DB_NAME, SCHEMA, VALUES
 
@@ -19,12 +17,6 @@ def initialize_db():
     """
     Sets up the initial database file and populates it with some random users.
     Calls insert_values_to_db() for inserting values inside the DB file
-
-    >>> import os
-    >>> os.path.isfile('sare_log.db')
-    True
-    >>>
-
     """
     try:
         cursor.execute(SCHEMA)
@@ -35,14 +27,6 @@ def initialize_db():
 def insert_values_to_db():
     """
     Populates the database with 'VALUES'
-
-    >>> import sqlite3
-    >>> con = sqlite3.connect('sare_log.db')
-    >>> cur = con.cursor()
-    >>> cur.execute('select * from users').fetchall()
-    [('admin', 'Admin', 1, 'admin123'), ('foo', 'bar', 2, 'foo123'), ('john', 'doe', 3, 'john123')]
-    >>> 
-
     """
     try:
         cursor.executemany("INSERT INTO users VALUES (?, ?, ?, ?)", VALUES)

@@ -23,7 +23,7 @@ Plan of action
 ~~~~~~~~~~~~~~
 
 - [✓] Test for ``SQL Injection`` vulnerabilities
-- [ ] Test for ``Input validation`` techniques using `WTForms <http://wtforms.readthedocs.org/en/latest/index.html>`__
+- [✓] Test for ``Input validation`` techniques
 - [✓] Suggest fixes to the vulnerabilities found(if any)
 - [✓] making the GUI using tkinter
 - [ ] **Writing testcases**
@@ -31,8 +31,8 @@ Plan of action
 Mitigation techniques
 ~~~~~~~~~~~~~~~~~~~~~
 
-- [ ] Will be using `WTF Forms <http://wtforms.readthedocs.org/en/latest/crash_course.html>`__ for input validation
-- [ ] Replacing the parameterized ``SQL constructs`` in the code and replace it with pythonic API
+- [✓] Validating email entered by using custom `regex`
+- [✓] Replacing the parameterized ``SQL constructs`` in the code and replace it with pythonic API
 
 Show me what have you did so far
 ================================
@@ -55,22 +55,24 @@ The database has the following user credentials in it
     john        doe         3           john123
     sqlite>
 
-**When you enter user credentials which are there in the database**
+**When you enter correct user credentials which are there in the database**. 
 
-.. image:: http://i.imgur.com/dH5BBjz.jpg 
+.. image:: http://i.imgur.com/3uTVdyh.jpg
    :alt:
 
 
-**If a wrong user details are entered**
+**If a wrong user details are entered**. Notice that the SQL statements don't get executed
 
 
-.. image:: http://i.imgur.com/4It8Yha.jpg
+.. image:: http://i.imgur.com/UyiUiJq.jpg
 
 
 **SQL injection anybody?**
 
 
-.. image:: http://i.imgur.com/e5BmrX9.jpg
+.. image:: http://i.imgur.com/GCDRhAg.jpg
+
+**You can see that malicious SQL query was mitigated successfully.**
 
 Running it
 ==========
