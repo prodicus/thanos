@@ -19,11 +19,19 @@ arguments in your query strings.
 Will be using a GUI as an interface between the user and the database and try out
 different vulnerable strings and see if we can acess the database
 
+**NOTE**: 
+
++---------------------------------------------------------------------------+------------------------------------------------------------------------------------------+
+| **Vulnerabilities (demo)**                                                | **mitigated version**                                                                    |
++===========================================================================+==========================================================================================+
+| `thanos/vulnerable <https://github.com/prodicus/thanos/tree/develop>`__   | `thanos/input-validation <https://github.com/prodicus/thanos/tree/input-validation>`__   |
++---------------------------------------------------------------------------+------------------------------------------------------------------------------------------+
+
 Plan of action
 ~~~~~~~~~~~~~~
 
 - [✓] Test for ``SQL Injection`` vulnerabilities
-- [ ] Test for ``Input validation`` techniques using `WTForms <http://wtforms.readthedocs.org/en/latest/index.html>`__
+- [✓] Test for ``Input validation`` techniques
 - [✓] Suggest fixes to the vulnerabilities found(if any)
 - [✓] making the GUI using tkinter
 - [ ] **Writing testcases**
@@ -31,8 +39,8 @@ Plan of action
 Mitigation techniques
 ~~~~~~~~~~~~~~~~~~~~~
 
-- [ ] Will be using `WTF Forms <http://wtforms.readthedocs.org/en/latest/crash_course.html>`__ for input validation
-- [ ] Replacing the parameterized ``SQL constructs`` in the code and replace it with pythonic API
+- [✓] Validating email entered by using custom `regex`
+- [✓] Replacing the parameterized ``SQL constructs`` in the code and replace it with pythonic API
 
 Show me what have you did so far
 ================================
