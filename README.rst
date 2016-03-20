@@ -19,6 +19,8 @@ arguments in your query strings.
 Will be using a GUI as an interface between the user and the database and try out
 different vulnerable strings and see if we can acess the database
 
+**NOTE**: Check the `vulnerable version here <https://github.com/prodicus/tree/master/develop>`__
+
 Plan of action
 ~~~~~~~~~~~~~~
 
@@ -41,38 +43,42 @@ The database has the following user credentials in it
 
 .. code:: bash
 
-    tasdik at Acer in ~/Dropbox/projects/thanos on develop
+    tasdik at Acer in ~/Dropbox/projects/thanos on input-validation
     $ sqlite3 sare_log.db 
     -- Loading resources from /home/tasdik/.sqliterc
 
-    SQLite version 3.8.6 2014-08-15 11:46:33
+    SQLite version 3.9.2 2015-11-02 18:31:45
     Enter ".help" for usage hints.
-    sqlite> SELECT * FROM users;
-    username    name        serial_no   password  
-    ----------  ----------  ----------  ----------
-    admin       Admin       1           admin123  
-    foo         bar         2           foo123    
-    john        doe         3           john123
-    sqlite>
+    sqlite> select * from users;
+    email            name        serial_no   password  
+    ---------------  ----------  ----------  ----------
+    admin@gmail.com  Admin       1           admin123  
+    foo@outlook.com  bar         2           foo123    
+    john@yahoo.com   doe         3           john123   
+    sqlite> 
+
 
 **When you enter correct user credentials which are there in the database**. 
 
-.. image:: http://i.imgur.com/3uTVdyh.jpg
+.. image:: http://i.imgur.com/DwClAPm.jpg
    :alt:
 
 
 **If a wrong user details are entered**. Notice that the SQL statements don't get executed
 
 
-.. image:: http://i.imgur.com/UyiUiJq.jpg
+.. image:: http://i.imgur.com/wVOG85S.jpg
+   :alt:
 
 
 **SQL injection anybody?**
 
 
-.. image:: http://i.imgur.com/GCDRhAg.jpg
+.. image:: http://i.imgur.com/42YhmpU.jpg
+   :alt:
 
-**You can see that malicious SQL query was mitigated successfully.**
+
+**The threat was mitigated as the malicious SQL query was not executed**
 
 Running it
 ==========
