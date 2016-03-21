@@ -2,7 +2,7 @@
 # @Author: Tasdik Rahman
 # @Date:   2016-03-19 00:10:33
 # @Last Modified by:   Tasdik Rahman
-# @Last Modified time: 2016-03-20 12:18:24
+# @Last Modified time: 2016-03-21 09:28:07
 
 """
 Contains the class 'GuiLogin()' which will be imported by 'main.py' to be run
@@ -124,18 +124,19 @@ class GuiLogin(Frame):
         else:
             # Defining the vulnerable SQL query which will be used to exploit the database
             # usign SQL injection
-            # sqlInjection_vuln_query = '''SELECT name FROM users WHERE email = '%s' and password = '%s' ''' % (email, password)
+            # SQL_QUERY = '''SELECT name FROM users WHERE email = '%s' and password = '%s' ''' % (email, password)
 
             # --- Secure method ---
-            sqlInjection_vuln_query = "SELECT name FROM users WHERE email='{0}' and password='{1}'".format(
-                email,
-                password
-            )
+            ## parameterized SQL query
+            cursor.execute("""SELECT name FROM users
+                              WHERE
+                              email=? and password=?
+                           """,(email, password)
+                           )
 
-            print("Executing the SQL query")
-            print(colored(sqlInjection_vuln_query, "yellow"))
+            # print("Executing the SQL query")
+            # print(colored(SQL_QUERY, "yellow"))
 
-            cursor.execute(sqlInjection_vuln_query)
 
             # Will assume here that the login failed, if no rows are returned back
             # by the database
