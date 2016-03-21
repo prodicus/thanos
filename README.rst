@@ -159,7 +159,7 @@ The code looks messy!
 
 Jokes apart. As I said, this is still a  work in progress.
 
-To the contruibuters
+To the contributors
 ====================
 `[Back to top] <https://github.com/prodicus/thanos#thanos>`__
 
@@ -189,7 +189,7 @@ Issues
 This project is still work in progress so feel free to make PR or give
 suggestions by `creating an issue <https://github.com/prodicus/thanos/issues>`__
 
-Contributers
+Contributors
 ============
 `[Back to top] <https://github.com/prodicus/thanos#thanos>`__
 
