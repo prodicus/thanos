@@ -42,8 +42,8 @@ Mitigation techniques
 - [✓] Validating email entered by using custom `regex`
 - [✓] Replacing the parameterized ``SQL constructs`` in the code and replace it with pythonic API
 
-Show me what have you did so far
-================================
+Show me what you have done so far
+=================================
 
 The database has the following user credentials in it
 
