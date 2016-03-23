@@ -3,10 +3,6 @@ thanos
 
 |Build Status| |Requirements Status| |License|
 
-.. image:: https://requires.io/github/prodicus/thanos/requirements.svg?branch=input-validation
-     :target: https://requires.io/github/prodicus/thanos/requirements/?branch=input-validation
-     :alt: Requirements Status
-
 :Author: Tasdik Rahman
 
 .. contents::
@@ -25,7 +21,13 @@ arguments in your query strings.
 Will be using a GUI as an interface between the user and the database and try out
 different vulnerable strings and see if we can acess the database
 
-**NOTE**: Check the `vulnerable version here <https://github.com/prodicus/tree/master/develop>`__
+**NOTE**: 
+
++---------------------------------------------------------------------------+------------------------------------------------------------------------------------------+
+| **Vulnerabilities (demo)**                                                | **mitigated version**                                                                    |
++===========================================================================+==========================================================================================+
+| `thanos/vulnerable <https://github.com/prodicus/thanos/tree/develop>`__   | `thanos/input-validation <https://github.com/prodicus/thanos/tree/input-validation>`__   |
++---------------------------------------------------------------------------+------------------------------------------------------------------------------------------+
 
 Plan of action
 ~~~~~~~~~~~~~~
@@ -180,7 +182,10 @@ For ``pep257``
 
     $ make pep257
 
+- Running the tests
 
+.. code:: bash
+    $ make tests
 
 -  Write meaningful commit messages
 -  Rebase your commits to one commit when making a PR

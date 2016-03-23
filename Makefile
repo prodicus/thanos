@@ -75,3 +75,6 @@ run:
 	# -find . -iname "*.db" -exec rm "{}" \;
 	$(SYS_PYTHON) $(PROJECT)/create_db.py
 	$(SYS_PYTHON) $(PROJECT)/main.py
+
+tests:
+	python tests.py -v
