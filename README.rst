@@ -1,6 +1,12 @@
 thanos
 ======
 
+|Build Status| |Requirements Status| |License|
+
+.. image:: https://requires.io/github/prodicus/thanos/requirements.svg?branch=input-validation
+     :target: https://requires.io/github/prodicus/thanos/requirements/?branch=input-validation
+     :alt: Requirements Status
+
 :Author: Tasdik Rahman
 
 .. contents::
@@ -203,3 +209,10 @@ Legal Stuff
 `[Back to top] <https://github.com/prodicus/thanos#thanos>`__
 
 Built and maintained by `Tasdik Rahman <http://tasdikrahman.me>`__ released under the `MIT License <http://prodicus.mit-license.com>`__. See the bundled `LICENSE <https://github.com/prodicus/thanos/blob/master/LICENSE>`_ file for more details.
+
+.. |Build Status| image:: https://travis-ci.org/prodicus/thanos.svg?branch=input-validation
+    :target: https://travis-ci.org/prodicus/thanos
+.. |Requirements Status| image:: https://requires.io/github/prodicus/thanos/requirements.svg?branch=input-validation
+     :target: https://requires.io/github/prodicus/thanos/requirements/?branch=input-validation
+     :alt: Requirements Status
+.. |License| image:: https://img.shields.io/pypi/l/pyzipcode-cli.svg

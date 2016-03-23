@@ -65,6 +65,7 @@ install:
 		mkvirtualenv $(PROJECT) -p /usr/bin/$(SYS_PYTHON)
 		pip$(PYTHON_VERSION) install -r $(REQUIREMENTS)
 	else
+		pip install -U virtualenv
 		virtualenv -p /usr/bin/$(SYS_PYTHON) $(PROJECT)
 		source venv/bin/activate
 		pip$(PYTHON_VERSION) install -r $(REQUIREMENTS)

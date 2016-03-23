@@ -3,12 +3,20 @@
 language: python
 
 python:
-  - "3.3"
+  - "3.4"
   - "2.7"
-  - "pypy"
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -U .
+install:
+  - "pip install -r requirements.txt"
 
+notifications:
+  webhooks:
+    # urls:
+    #   - https://webhooks.gitter.im/e/d0c2d8b26723845bd158       ## for gitter chat
+    on_success: change  # options: [always|never|change] default: always
+    on_failure: always  # options: [always|never|change] default: always
+    on_start: never     # options: [always|never|change] default: always
+    
 # command to run tests, e.g. python setup.py test
-script: py.test
+script: python tests.py -v
