@@ -3,7 +3,10 @@ thanos
 
 |Build Status| |Requirements Status| |License|
 
-:Author: Tasdik Rahman
+.. image :: http://imgs.xkcd.com/comics/exploits_of_a_mom.png
+    :target: https://xkcd.com/327/
+
+:Author: `Tasdik Rahman <http://tasdikrahman.me>`__
 
 .. contents::
     :backlinks: none
