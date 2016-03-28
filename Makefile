@@ -38,8 +38,6 @@ SYS_PYTHON = python$(PYTHON_VERSION)
 clean:
 	-find . -iname "*.pyc" -exec rm "{}" \;
 	-find . -iname "__pycache__" -exec rm -rf "{}" \;
-	-find . -iname "*.db" -exec rm "{}" \;
-
 
 flake8:
 	# flake8 *.py
@@ -59,17 +57,10 @@ help:
 	@echo "\n"
 
 install:
-	ifeq ($USER, tasdik)
-		# checks whether it's me. If me, uses `mkvirtualenv` instead of
-		# virtualenv
-		mkvirtualenv $(PROJECT) -p /usr/bin/$(SYS_PYTHON)
-		pip$(PYTHON_VERSION) install -r $(REQUIREMENTS)
-	else
-		pip install -U virtualenv
-		virtualenv -p /usr/bin/$(SYS_PYTHON) $(PROJECT)
-		source venv/bin/activate
-		pip$(PYTHON_VERSION) install -r $(REQUIREMENTS)
-	endif
+	pip$(PYTHON_VERSION) install -U virtualenv
+	virtualenv -p /usr/bin/$(SYS_PYTHON) $(PROJECT)
+	source venv/bin/activate
+	pip$(PYTHON_VERSION) install -r $(REQUIREMENTS)
 
 run:
 	# -find . -iname "*.db" -exec rm "{}" \;

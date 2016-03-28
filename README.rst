@@ -47,8 +47,10 @@ Mitigation techniques
 - [✓] Validating email entered by using custom `regex`
 - [✓] Replacing the parameterized ``SQL constructs`` in the code and replace it with pythonic API
 
-Show me what have you did so far
-================================
+DEMO
+====
+
+**NOTE** This is the secure version of the demo. Refer the `vulnerable one here <https://github.com/prodicus/thanos/tree/develop#3show-me-what-you-have-done-so-far>`__
 
 The database has the following user credentials in it
 
@@ -168,30 +170,11 @@ The code looks messy!
 
 Jokes apart. As I said, this is still a  work in progress.
 
-To the contruibuters
-====================
+Contributing
+============
 `[Back to top] <https://github.com/prodicus/thanos#thanos>`__
 
--  Conform to `PEP0008 <http://pep8.org>`__
--  Make sure your code passes **flake8** and **pep257**
-
-.. code:: bash
-
-    $ make flake8
-
-For ``pep257``
-
-.. code:: bash
-
-    $ make pep257
-
-- Running the tests
-
-.. code:: bash
-    $ make tests
-
--  Write meaningful commit messages
--  Rebase your commits to one commit when making a PR
+Refer `CONTRIBUTING.rst <https://github.com/prodicus/thanos/blob/input-validation/CONTRIBUTING.rst>`__
 
 Issues
 ~~~~~~
@@ -202,7 +185,7 @@ This project is still work in progress so feel free to make PR or give
 suggestions by `creating an issue <https://github.com/prodicus/thanos/issues>`__
 
 Contributers
-============
+~~~~~~~~~~~~
 `[Back to top] <https://github.com/prodicus/thanos#thanos>`__
 
 Built with ♥ and after a lot of marshmellows by
