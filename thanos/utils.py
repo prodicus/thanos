@@ -2,7 +2,7 @@
 # @Author: Tasdik Rahman
 # @Date:   2016-03-20 10:52:15
 # @Last Modified by:   Tasdik Rahman
-# @Last Modified time: 2016-03-20 11:03:29
+# @Last Modified time: 2016-04-15 19:17:35
 
 """
 Tries to validate the email address entered by the user to the GUI.
@@ -33,7 +33,14 @@ def password_validator(password):
     """
     Rejects a password if the password has special characters in it
     """
-    if PUNCTUATIONS in password:
+    if list(PUNCTUATIONS) in password:
+        """
+        >>> list(string.punctuation)
+        ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.',
+        '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`',
+        '{', '|', '}', '~']
+        >>>
+        """
         return False
     else:
         return True

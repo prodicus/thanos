@@ -1,7 +1,7 @@
 thanos
 ======
 
-|Build Status| |Requirements Status| |License|
+|Build Status| |percentagecov| |grade| |Requirements Status| |License| 
 
 .. image :: http://imgs.xkcd.com/comics/exploits_of_a_mom.png
     :target: https://xkcd.com/327/
@@ -204,6 +204,10 @@ Built and maintained by `Tasdik Rahman <http://tasdikrahman.me>`__ released unde
 .. |Build Status| image:: https://travis-ci.org/prodicus/thanos.svg?branch=input-validation
     :target: https://travis-ci.org/prodicus/thanos
 .. |Requirements Status| image:: https://requires.io/github/prodicus/thanos/requirements.svg?branch=input-validation
-     :target: https://requires.io/github/prodicus/thanos/requirements/?branch=input-validation
-     :alt: Requirements Status
+    :target: https://requires.io/github/prodicus/thanos/requirements/?branch=input-validation
+    :alt: Requirements Status
 .. |License| image:: https://img.shields.io/pypi/l/pyzipcode-cli.svg
+.. |grade| image:: https://api.codacy.com/project/badge/grade/e2cb32eae16242f795f498d40d0d8984
+    :target: https://www.codacy.com/app/tasdik95/thanos
+.. |percentagecov| image:: https://api.codacy.com/project/badge/coverage/e2cb32eae16242f795f498d40d0d8984
+    :target: https://www.codacy.com/app/tasdik95/thanos

@@ -1,0 +1,4 @@
+[run]
+omit =
+	/home/tasdik/.virtualenvs/thanos/lib/python3.4/site-packages/termcolor.py
+	/home/tasdik/.virtualenvs/thanos/lib/python3.4/site.py
